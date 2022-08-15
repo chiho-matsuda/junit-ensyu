@@ -1,6 +1,11 @@
-package junit.tutorial.ex01.e04;
+package junit.tutorial.ex02.e02;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -8,7 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class NumberUtilsTest {
+class EmployeeTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -28,10 +33,17 @@ class NumberUtilsTest {
 
 	@Test
 	void test() {
-		 boolean result = NumberUtils.isEven(10);
-		assertEquals(true, result);
-		 boolean result2 = NumberUtils.isEven(7);
-		 assertEquals(false, result2);
+		try {
+			InputStream in = new FileInputStream("/matsudachifu/workspace-spring/junit-ensyu/src/main/java/junit/tutorial/ex02/e02/Employee.txt");
+			List<Employee> empList = Employee.load(in);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 	}
 
 }

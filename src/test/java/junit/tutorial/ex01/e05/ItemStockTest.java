@@ -1,5 +1,6 @@
 package junit.tutorial.ex01.e05;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -30,15 +31,17 @@ class ItemStockTest {
 	void test() {
 		ItemStock itemStock = new ItemStock();
 		int firstGetNum = itemStock.getNum(new Item("CD",100));
-		System.out.println(firstGetNum);
+		assertEquals(0, firstGetNum);
 	}
+
+	
 
 	@Test
 	void test2() {
 		ItemStock itemStock = new ItemStock();
 		itemStock.add(new Item("book",1000));
 		int firstGetNum = itemStock.getNum(new Item("book",1000));
-		System.out.println(firstGetNum);
+		assertEquals(1, firstGetNum);
 	}
 	
 	@Test
@@ -47,7 +50,7 @@ class ItemStockTest {
 		itemStock.add(new Item("book",1000));
 		itemStock.add(new Item("book",1000));
 		int secondGetNum = itemStock.getNum(new Item("book",1000));
-		System.out.println(secondGetNum);
+		assertEquals(2, secondGetNum);
 	}
 	
 	@Test
@@ -56,7 +59,7 @@ class ItemStockTest {
 		itemStock.add(new Item("book",1000));
 		itemStock.add(new Item("DVD",5000));
 		int thirdGetNum = itemStock.getNum(new Item("book",1000));
-		System.out.println(thirdGetNum);
+		assertEquals(1, thirdGetNum);
 	}
 	
 	

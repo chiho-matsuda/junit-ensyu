@@ -1,15 +1,16 @@
-package junit.tutorial.ex01.e01;
+package junit.tutorial.ex02.e01;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-class StringUtilsTest {
+class FizzBuzzTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -28,19 +29,12 @@ class StringUtilsTest {
 	}
 
 	@Test
-	void test1() {
-		String result = StringUtils.toSnakeCase("aaa");
-		assertEquals("aaa", result);
+	void test() {
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		List<String> result = fizzBuzz.createFizzBuzzList(16);
+		List<String> exptected = Arrays.asList("1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz","16");
+		assertIterableEquals(exptected,result,"間違いです");
+		
 	}
-	@Test
-	void test2() {
-		String result = StringUtils.toSnakeCase("HelloWorld");
-		assertEquals( "hello_world", result);
-	}
-   @Test
-   void test3() {
-	   String result = StringUtils.toSnakeCase("practiceJunit");
-	   assertEquals( "practice_junit", result);
-   }
 
 }

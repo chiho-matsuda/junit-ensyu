@@ -30,9 +30,9 @@ class CounterTest {
 	void test() {
 		Counter counter = new Counter();
 		int firstIncrement = counter.increment();
-		System.out.println(firstIncrement);
+		assertEquals(1, firstIncrement);
 		int secondIncrement = counter.increment();
-		System.out.println(secondIncrement);
+		assertEquals(2, secondIncrement);
 		counter.increment(); counter.increment(); counter.increment();
 		counter.increment(); counter.increment(); counter.increment(); 
 		counter.increment(); counter.increment(); counter.increment();
@@ -50,7 +50,7 @@ class CounterTest {
 		counter.increment(); counter.increment(); counter.increment();
 		counter.increment(); counter.increment(); counter.increment();
 		int finalIncrement = counter.increment();
-		System.out.println(finalIncrement);
+		assertEquals(51, finalIncrement);
 	}
 
 	
